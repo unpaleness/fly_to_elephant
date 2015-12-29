@@ -28,12 +28,12 @@ Control::Control(int argc, char **argv)
     bool isRead = true; // Flag for successful reading words and dictionary
     if (init()) // If algorithm initialized
     {
-        if (!algorithm->readWords(&fileNameWords))
+        if (!algorithm->readWords(fileNameWords))
         {
             std::cout << "Error while reading start and end words\n";
             isRead = false;
         }
-        if (!algorithm->readDictionary(&fileNameDictionary))
+        if (!algorithm->readDictionary(fileNameDictionary))
         {
             std::cout << "Error while reading dictionary\n";
             isRead = false;

@@ -22,11 +22,11 @@ public:
     // Getter of "path"
     const std::vector <std::string> &getPath() { return path; }
     //Reads start and end words from "fileNameWords" file
-    bool readWords(std::string *fileNameWords)
+    bool readWords(const std::string &fileNameWords)
     {
         try
         {
-            std::ifstream input(*fileNameWords, std::ios::in); // Filestream of words
+            std::ifstream input(fileNameWords, std::ios::in); // Filestream of words
             if (!input.is_open())
                 return false;
             getline(input, fly);
@@ -39,12 +39,12 @@ public:
         return true;
     }
     // Reads dictionary from "fileNameDictionary" file
-    bool readDictionary(std::string *fileNameDictionary)
+    bool readDictionary(const std::string &fileNameDictionary)
     {
         try
         {
             std::string buffer; // Temporary string for reading each string
-            std::ifstream input(*fileNameDictionary, std::ios::in); // Filestream of dictionary
+            std::ifstream input(fileNameDictionary, std::ios::in); // Filestream of dictionary
             if (!input.is_open())
                 return false;
             while (getline(input, buffer))
@@ -62,12 +62,12 @@ public:
     virtual void run() = 0;       // Virtual function to run calculations
 
 protected:
-    std::string name;                  // Name of algorithm
     size_t iterationLimit;             // Iteration limit
     size_t iterationLimitMax;          // Maximum iteration limit
-    std::set <std::string> dictionary; // Dictionary in representation of set
+    std::string name;                  // Name of algorithm
     std::string fly;                   // A "fly" - start word
     std::string elephant;              // An "elephant" - end word
+    std::set <std::string> dictionary; // Dictionary in representation of set
     std::vector <std::string> path;    // A "path" of words leading from "fly" to "elephant"
 
     // Shows whether "prev" and "next" are neighbours or not (have minimal difference)
