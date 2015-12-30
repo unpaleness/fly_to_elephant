@@ -1,4 +1,4 @@
-// Testing all common methods of abstract "Algorithm" class
+// Testing methods of abstract "Algorithm" class
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE testAlgorithm
 #include <boost/test/unit_test.hpp>

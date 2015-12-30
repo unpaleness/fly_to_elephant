@@ -90,11 +90,11 @@ protected:
         // 2) small string must fully occur in large one
         else
         {
-            if (std::abs(prev.size() - next.size()) > 1)  // Permanently exit if 1) condition is false
+            // Permanently exit if the 1st condition is false
+            if (std::fabs(int(prev.size()) - int(next.size())) > 1)
                 return false;
-            if (prev.size() > next.size() && prev.find(next) != std::string::npos) // if "prev" is more than "next" and if next is in prev
-                return true;
-            if (prev.size() < next.size() && next.find(prev) != std::string::npos) // if "next" is more than "prev" and if prev is in next
+            // if one of the strings has another
+            if (prev.find(next) != std::string::npos || next.find(prev) != std::string::npos)
                 return true;
         }
         return false;

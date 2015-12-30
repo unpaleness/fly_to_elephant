@@ -2,7 +2,7 @@ CC         = g++
 CFLAGS     = -std=c++11 -O2 -c -Wall -Wextra
 LFLAGS     = -std=c++11 -lboost_unit_test_framework
 SOURCES    = code/algorithm_test.cpp
-             # code/algorithm_brute_force_test.cpp \
+             # code/algorithm_brute_force_test.cpp
              # code/algorithm_genetic_test.cpp
 OBJECTS    = $(SOURCES:code%.cpp=obj%.o)
 EXECUTABLE = fly_to_elephant_test
